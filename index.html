@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nada's Portfolio </title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <style>
+            :root {
+                --primary: #4a6fdc;
+                --secondary: #2c3e50;
+                --light: #f8f9fa;
+                --dark: #212529;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: var(--dark);
+            }
+            
+            .hero {
+                background: linear-gradient(135deg, var(--primary) 0%, #7a9bff 100%);
+                color: white;
+                padding: 7rem 0;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .hero::after {
+                content: "";
+                position: absolute;
+                bottom: -50px;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: white;
+                clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 100%);
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 5px solid white;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .skill-card {
+                border-radius: 10px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                height: 100%;
+            }
+            
+            .skill-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .skill-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                color: var(--primary);
+            }
+            
+            .project-card {
+                border-radius: 10px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+                height: 100%;
+            }
+            
+            .project-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .section-title {
+                position: relative;
+                display: inline-block;
+                padding-bottom: 10px;
+                margin-bottom: 30px;
+            }
+            
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background-color: var(--primary);
+            }
+            
+            .contact-icon {
+                font-size: 1.5rem;
+                color: var(--primary);
+                margin-right: 10px;
+            }
+            
+            footer {
+                background-color: var(--secondary);
+                color: white;
+            }
+            
+            .social-icon {
+                font-size: 1.5rem;
+                color: white;
+                margin: 0 10px;
+                transition: color 0.3s ease;
+            }
+            
+            .social-icon:hover {
+                color: var(--primary);
+            }
+            
+            .btn-custom {
+                background-color: var(--primary);
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 50px;
+                transition: all 0.3s ease;
+            }
+            
+            .btn-custom:hover {
+                background-color: #3a5bb9;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(74, 111, 220, 0.4);
+            }
+            
+            .navbar {
+                transition: all 0.3s ease;
+            }
+            
+            .navbar.scrolled {
+                background-color: white !important;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .navbar.scrolled .nav-link {
+                color: var(--dark) !important;
+            }
+            
+            .nav-link {
+                position: relative;
+                margin: 0 10px;
+            }
+            
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary);
+                transition: width 0.3s ease;
+            }
+            
+            .nav-link:hover::after {
+                width: 100%;
+            }
+        </style>
+    </head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Dev<span class="text-primary">Portfolio</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container text-center">
+            <img src="/images/myPic.jpg" alt="Profile" class="profile-img mb-4">
+            <h1 class="display-4 fw-bold mb-3">Hi, I'm Nada</h1>
+            <h2 class="h3 mb-4">Frontend Developer</h2>
+            <p class="lead mb-5">I craft visually appealing and responsive web interfaces with a focus on user experience and clean, maintainable code.</p>
+            <a href="#contact" class="btn btn-custom btn-lg">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+              <h2 class="section-title text-center">About Me</h2>
+              <p class="lead">
+                I'm a frontend developer focused on building clean, responsive, and user-friendly interfaces using HTML, CSS, JavaScript, and modern tools like React and Firebase. I enjoy turning ideas into interactive web experiences and continuously work on real-world projects to sharpen my skills and expand my capabilities.
+              </p>
+              <div class="mt-4">
+                <a href="#projects" class="btn btn-outline-dark">View My Work</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Skills Section -->
+    <section class="py-5 bg-light" id="skills">
+        <div class="container">
+            <h2 class="section-title text-center">My Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card skill-card shadow-sm p-4">
+                        <div class="text-center">
+                            <i class="fab fa-html5 skill-icon"></i>
+                            <h3 class="h5">HTML5</h3>
+                            <p>Semantic markup, accessibility, SEO best practices</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card skill-card shadow-sm p-4">
+                        <div class="text-center">
+                            <i class="fab fa-css3-alt skill-icon"></i>
+                            <h3 class="h5">CSS3</h3>
+                            <p>Flexbox, Grid, animations, transitions, and custom properties</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card skill-card shadow-sm p-4">
+                        <div class="text-center">
+                            <i class="fab fa-js-square skill-icon"></i>
+                            <h3 class="h5">JavaScript</h3>
+                            <p>ES6+, DOM manipulation, event handling, and asynchronous programming</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card skill-card shadow-sm p-4">
+                        <div class="text-center">
+                            <i class="fab fa-bootstrap skill-icon"></i>
+                            <h3 class="h5">Bootstrap</h3>
+                            <p>Responsive layouts, components, utilities, and customization</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card skill-card shadow-sm p-4">
+                        <div class="text-center">
+                            <i class="fab fa-git-alt skill-icon"></i>
+                            <h3 class="h5">Git & GitHub</h3>
+                            <p>Version control, branching, pull requests, and collaboration</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="card skill-card shadow-sm p-4">
+                        <div class="text-center">
+                            <i class="fas fa-fire skill-icon"></i>
+                            <h3 class="h5">Firebase</h3>
+                            <p>Authentication, real-time database, and cloud storage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Projects Section -->
+    <section class="py-5" id="projects">
+        <div class="container">
+          <h2 class="section-title text-center">My Projects</h2>
+          
+          <div class="row g-4">
+            <!-- Egyptian Trap Website -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card project-card shadow-sm h-100">
+                <img src="/images/project1.PNG" class="card-img-top" alt="Egyptian Trap Website">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Egyptian Trap Website</h3>
+                  <p class="card-text">A dynamic site showcasing Egyptian trap music and culture with artist profiles, track streaming, and event announcements.</p>
+                  <div class="d-flex mt-3">
+                    <span class="badge bg-primary me-1">HTML</span>
+                    <span class="badge bg-primary me-1">CSS</span>
+                    <span class="badge bg-primary me-1">JavaScript</span>
+                    <span class="badge bg-primary">Responsive Design</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <div class="d-flex justify-content-between">
+                    <a href="https://nadaebrahimm.github.io/Egyptian-tarap/" target="_blank" class="btn btn-sm btn-outline-primary">Live Demo</a>
+                    <a href="https://github.com/nadaebrahimm/Egyptian-tarap.git" target="_blank" class="btn btn-sm btn-outline-dark">Code</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- StyleStore Website -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card project-card shadow-sm h-100">
+                <img src="/images/project2.PNG" class="card-img-top" alt="StyleStore">
+                <div class="card-body">
+                  <h3 class="h5 card-title">StyleStore</h3>
+                  <p class="card-text">A fashion e-commerce platform with modern UI, cart functionality, and payment integration.</p>
+                  <div class="d-flex mt-3">
+                    <span class="badge bg-primary me-1">HTML</span>
+                    <span class="badge bg-primary me-1">CSS</span>
+                    <span class="badge bg-primary">JavaScript</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <div class="d-flex justify-content-between">
+                    <a href="https://stylestore-site.netlify.app/" target="_blank" class="btn btn-sm btn-outline-primary">Live Demo</a>
+                    <a href="https://github.com/nadaebrahimm/styleStore-.git" target="_blank" class="btn btn-sm btn-outline-dark">Code</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Custom T-Shirt Designer -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card project-card shadow-sm h-100">
+                <img src="/images/project3.PNG" class="card-img-top" alt="T-Shirt Designer">
+                <div class="card-body">
+                  <h3 class="h5 card-title">Custom T-Shirt Designer</h3>
+                  <p class="card-text">A web app for designing and previewing custom t-shirts with image uploads, text overlays, and user authentication,.</p>
+                  <div class="d-flex mt-3">
+                    <span class="badge bg-primary me-1">JavaScript</span>
+                    <span class="badge bg-primary me-1">CSS</span>
+                    <span class="badge bg-primary">Firebase</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <div class="d-flex justify-content-between">
+                    <a href="https://nadaebrahimm.github.io/product-configurator/" target="_blank" class="btn btn-sm btn-outline-primary">Live Demo</a>
+                    <a href="https://github.com/nadaebrahimm/product-configurator.git" target="_blank" class="btn btn-sm btn-outline-dark">Code</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- Process Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">My Working Process</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3 class="h5">1. Discussion</h3>
+                            <p class="mb-0">I start by understanding your goals, requirements, and vision for the project.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <h3 class="h5">2. Planning</h3>
+                            <p class="mb-0">I create a detailed plan including timeline, features, and technical requirements.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="h5">3. Development</h3>
+                            <p class="mb-0">I build your project with clean, efficient code following best practices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="h5">4. Delivery</h3>
+                            <p class="mb-0">I deploy your project, provide documentation, and offer post-launch support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="mb-4">I'm currently available for freelance work. If you have a project that you want to get started, think you need my help with something, or just want to say hello, then get in touch.</p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>nadaebrahim79739@gmail.com</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>+201090328648</span>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>Egypt</span>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-4">Send a Message</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-custom w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 [Your Name]. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
